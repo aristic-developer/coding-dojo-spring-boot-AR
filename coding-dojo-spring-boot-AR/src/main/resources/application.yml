@@ -1,0 +1,31 @@
+server:
+  port: 8899
+
+spring:
+  application:
+    name: weather-service
+  datasource: 
+    url: jdbc:postgresql://localhost:5432/weather 
+    username : postgres
+    password : root 
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  show-sql: true 
+hibernate:
+  dialect: org.hibernate.dialect.PostgreSQL81Dialect
+  
+  
+weather:
+  api:
+    url: http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appid}
+    key: c077126ab621379a5447d088e4c51622
+
